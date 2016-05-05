@@ -9,14 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Harriken Blog</title>
+    <title>Clean Blog - About</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?= base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="<?= base_url()?>assets/css/clean-blog.min.css" rel="stylesheet">
-    <link href="<?= base_url()?>assets/css/styles.css" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -45,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="">Harriken Blog</a>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,46 +71,27 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('<?= base_url()?>assets/img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/about-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Harriken Blog</h1>
+                    <div class="page-heading">
+                        <h1>About Me</h1>
                         <hr class="small">
-                        <span class="subheading">JOIN US IN THE FOODTASTIC REVOLUTION</span>
+                        <span class="subheading">This is what I do.</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    
+
     <!-- Main Content -->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<!--                // customed by me-->
-                <?php foreach($posts as $post){ ?>
-                    <div class="post-preview">
-                        <a href="<?= base_url()?>index.php/blog/post/<?= $post['id']; ?>">
-                            <h2 class="post-title">
-                                <?= $post['title']; ?>
-                            </h2>
-                            <h3 class="post-subtitle">
-                                <?= substr(strip_tags($post['description']), 0, 150).'...';?>
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#"><?= $post['fullname']; ?></a> on <?= date("d M, Y",strtotime($post['created_at'])); ?></p>
-                    </div>
-                    <hr>
-                <?php } ?>
-                
-                
-<!--                //end customized --> 
-
-        
-
-                 
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum molestiae debitis nobis, quod sapiente qui voluptatum, placeat magni repudiandae accusantium fugit quas labore non rerum possimus, corrupti enim modi! Et.</p>
             </div>
         </div>
     </div>
@@ -156,13 +136,13 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="<?= base_url()?>assets/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="<?= base_url()?>assets/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<?= base_url()?>assets/js/clean-blog.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 
 </body>
 
