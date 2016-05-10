@@ -6,7 +6,9 @@ class Blog extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_post');
+        $this->load->model('m_login');
     }
+    
     
     
     
@@ -24,7 +26,8 @@ class Blog extends CI_Controller
 
         $this->pagination->initialize($config); 
         $data['pages'] = $this->pagination->create_links(); //Links of pages
-        $this->load->view('header');
+        $data['userinfo'] = $this->session->all_userdata();
+        $this->load->view('header', $data);
         $this->load->view('index.html', $data);
         $this->load->view('footer');
     }
@@ -49,11 +52,9 @@ class Blog extends CI_Controller
         $data['post'] = $this->m_post->get_post($post_id);
         $this->load->view('post.html',$data);
     }
+     
+
 }
-   
-
-
-
 
 ////Customizing the Total Pagination
 //        $config['full_tag_open'] = '<div class="container"><ul class="pagination">';

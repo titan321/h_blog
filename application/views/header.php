@@ -73,7 +73,11 @@
                             <a href="contact.html">Contact</a>
                         </li>
                         <li>
-                            <a href="#" id="login_text">Login</a>
+                            <?php if ($this->session->userdata("userid")) { ?>
+                                <a href="<?= base_url()?>index.php/user/logout/" id="logout_text">Logout</a>
+                            <?php } else { ?>
+                                <a href="#" id="login_text">Login</a>
+                            <?php } ?>
                         </li>
                     </ul>
                 </div>
@@ -81,3 +85,5 @@
             </div>
             <!-- /.container -->
         </nav>
+        
+      <!--?= print_r($userinfo); ?-->
