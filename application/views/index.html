@@ -40,7 +40,8 @@
 
         <hr>
 
-        <!-- The Modal -->
+       <!-- The Modal -->
+  
         <div id="myModal" class="modal" role="dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -59,7 +60,7 @@
                                        
                                     </div>
                                 
-                                <form id="loginForm" method="POST" action="<?= base_url()?>index.php/user/login" novalidate="novalidate">
+                                <form id="loginForm" method="POST" action="<?= base_url()?>user/login" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="email" class="control-label">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" value="" required="" title="Please enter you email" placeholder="example@gmail.com">
@@ -87,23 +88,29 @@
                         </div>
                         <div class="col-xs-6">
                              <div class="well forpad">
-                                <form id="loginForm" method="POST" action="/login/" novalidate="novalidate">
+<!--                                <form id="loginForm" method="POST" action="<?= base_url()?>user/register" novalidate="novalidate">
                                     
                                     <div style="text-align: center; margin-top: 0px;">
                                         <h4 style="text-transform: capitalize;"> NOT YET REGISTERED !!!! </h4>
                                        
-                                    </div>
+                                    </div>-->
+
+                                    
+<!--                                    
                                     <div class="form-group">
-                                        <label for="username" class="control-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email" value="" required="" title="Please enter you email" placeholder="example@gmail.com">
+                                        <label for="fullname" class="control-label">Full Name</label>
+                                        <input type="text" class="form-control" id="fullname" name="fullname" value="" required="">
                                         <span class="help-block"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="username" class="control-label">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email" value="" required="" title="Please enter you email" placeholder="example@gmail.com">
+                                    </div>-->
+
+                                    
+
+<!--                                    <div class="form-group">
+                                        <label for="lname" class="control-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lname" name="lname" value="" required="">
                                         <span class="help-block"></span>
-                                    </div>
-                                    <div class="form-group">
+                                    </div>-->
+<!--                                    <div class="form-group">
                                         <label for="username" class="control-label">Email</label>
                                         <input type="text" class="form-control" id="email" name="email" value="" required="" title="Please enter you email" placeholder="example@gmail.com">
                                         <span class="help-block"></span>
@@ -114,18 +121,68 @@
                                         <span class="help-block"></span>
                                     </div>
                                       <div class="form-group">
-                                        <label for="password" class="control-label"> Retype Password</label>
-                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please retype your password">
+                                        <label for="password" class="control-label"> Confirm Password</label>
+                                        <input type="password" class="form-control" id="password" name="cpassword" value="" required="" title="Please retype your password">
                                         <span class="help-block"></span>
                                     </div>
-                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                  
                                    
                                     <button type="submit" class="btn btn-success btn-block btn-harriken">Sign Up</button>
                      
-                                </form>
+                                </form>-->
+
+                                <div class="panel-body">
+                                    <?php $attributes = array("name" => "registrationform");
+                                    echo form_open("user/register", $attributes);?>
+        <!--				<div class="form-group">
+                                            <label for="name">First Name</label>
+                                            <input class="form-control" name="fname" placeholder="Your First Name" type="text" value="<?php echo set_value('fname'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('fname'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="name">Last Name</label>
+                                            <input class="form-control" name="lname" placeholder="Last Name" type="text" value="<?php echo set_value('lname'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('lname'); ?></span>
+                                    </div>-->
+                                                               <div class="form-group">
+                                            <label for="fullname">Full Name</label>
+                                            <input class="form-control" name="fullname" placeholder="Your Full Name" type="text" value="<?php echo set_value('fullname'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('fullname'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="email">Email ID</label>
+                                            <input class="form-control" name="email" placeholder="Email-ID" type="text" value="<?php echo set_value('email'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('email'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="subject">Password</label>
+                                            <input class="form-control" name="password" placeholder="Password" type="password" />
+                                            <span class="text-danger"><?php echo form_error('password'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="subject">Confirm Password</label>
+                                            <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" />
+                                            <span class="text-danger"><?php echo form_error('cpassword'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <button name="submit" type="submit" class="btn btn-default">Signup</button>
+                                            <button name="cancel" type="reset" class="btn btn-default">Cancel</button>
+                                    </div>
+                                    <?php echo form_close(); ?>
+                                    <?php echo $this->session->flashdata('msg'); ?>
+                            </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+ 
+
+ 
+<!-- end modal -->

@@ -70,7 +70,7 @@ class Fblogin extends CI_Controller {
             //$this->session->sess_destroy();
             //$logout = $this->facebook->getLogoutUrl(array("next" => base_url() . 'index.php/fblogin/fblogout/'));
             //echo "<a href=" . $logout . ">" . "Logout" . "</a>";
-            redirect(base_url() . 'index.php/blog/');
+            redirect(base_url() . 'blog/');
             
             //TODO : JS : Show 'you're logged in as JAMES'
         } else {
@@ -87,7 +87,7 @@ class Fblogin extends CI_Controller {
     function fblogout() {
 
         session_destroy();
-        redirect(base_url() . 'index.php/fblogin');
+        redirect(base_url() . 'fblogin');
     }
 
 }

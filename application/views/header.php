@@ -61,20 +61,20 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="<?= base_url()?>/blog">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About</a>
+                            <a href="">About</a>
                         </li>
                         <li>
-                            <a href="post.html">Sample </a>
+                            <a href="">Sample </a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="">Contact</a>
                         </li>
                         <li>
                             <?php if ($this->session->userdata("userid")) { ?>
-                                <a href="<?= base_url()?>index.php/user/logout/" id="logout_text">Logout</a>
+                                <a href="<?= base_url()?>user/logout/" id="logout_text">Logout</a>
                             <?php } else { ?>
                                 <a href="#" id="login_text">Login</a>
                             <?php } ?>
@@ -87,3 +87,104 @@
         </nav>
         
       <!--?= print_r($userinfo); ?-->
+      
+      
+       <!-- The Modal -->
+  
+        <div id="myModal" class="modal" role="dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Login to Harriken Blog</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="well forpad">
+                                
+                                <a href="<?= base_url()?>fblogin" class="btn btn-default btn-block btn-ownfb">Login with Facebook</a>
+                                
+                                <div style="text-align: center; margin-top: 40px;">
+                                        <h4 style="text-transform: capitalize;"> ALREADY REGISTERED ??? </h4>
+                                       
+                                    </div>
+                                
+                                <form id="loginForm" method="POST" action="<?= base_url()?>user/login" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label for="email" class="control-label">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" value="" required="" title="Please enter you email" placeholder="example@gmail.com">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+<!--                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember" id="remember"> Remember login
+                                        </label>
+                                        <p class="help-block">(if this is a private computer)</p>
+                                    </div>-->
+                                    <button type="submit" class="btn btn-success btn-block btn-harriken">Login with Harriken</button>
+                                    
+                                  
+<!--                                <button type="submit" class="btn btn-success btn-block btn-ownfb">Login with Facebook </button>-->
+                                
+                                </form>
+                            </div>
+                        </div>
+                      <div class="col-xs-6">
+                             <div class="well forpad">
+
+                                <div class="panel-body">
+                                    <div style="text-align: center; margin-top: 0px;">
+                                        <h4 style="text-transform: capitalize;"> NOT YET REGISTERED !!!! </h4>
+                                       
+                                    </div>
+                                    <?php #myModal.css('display':'block'); ?>
+                                    <?php $attributes = array("name" => "registrationform");
+                                    echo form_open("user/register", $attributes);?>
+  
+                                    <div class="form-group">
+                                            <label for="fullname">Full Name</label>
+                                            <input class="form-control" name="fullname" placeholder="Your Full Name" type="text" value="<?php echo set_value('fullname'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('fullname'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="email">Email Address</label>
+                                            <input class="form-control" name="email" placeholder="Email " type="text" value="<?php echo set_value('email'); ?>" />
+                                            <span class="text-danger"><?php echo form_error('email'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="subject">Password</label>
+                                            <input class="form-control" name="password" placeholder="Password" type="password" />
+                                            <span class="text-danger"><?php echo form_error('password'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <label for="subject">Confirm Password</label>
+                                            <input class="form-control" name="cpassword" placeholder="Confirm Password" type="password" />
+                                            <span class="text-danger"><?php echo form_error('cpassword'); ?></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                            <button name="submit" type="submit" class="btn btn-success btn-block btn-harriken">Signup</button>
+                                          
+                                    </div>
+                                    <?php echo form_close(); ?>
+                                    <?php echo $this->session->flashdata('msg'); ?>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+ 
+<!-- end modal -->

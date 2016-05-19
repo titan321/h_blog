@@ -16,6 +16,8 @@ class Blog extends CI_Controller
     function index($start = 0)//index page
     {
         
+     
+        
         $data['posts'] = $this->m_post->get_posts(5, $start);
         
         $this->load->library('pagination');
@@ -28,7 +30,8 @@ class Blog extends CI_Controller
         $data['pages'] = $this->pagination->create_links(); //Links of pages
         $data['userinfo'] = $this->session->all_userdata();
         $this->load->view('header', $data);
-        $this->load->view('index.html', $data);
+       $this->load->view('v_home', $data);
+   //        $this->load->view('v_signup.php'); 
         $this->load->view('footer');
     }
     
@@ -44,13 +47,17 @@ class Blog extends CI_Controller
         $this->pagination->initialize($config); 
         $data['pages'] = $this->pagination->create_links(); //Links of pages
         
-        $this->load->view('index.html', $data);
+        $this->load->view('v_home', $data);
     }
             
     function post($post_id)//single post page
-    {    
+    {
+        $this->load->model('m_comment');
+        $data['comments'] = $this->m_comment->get_comment($post_id);  
         $data['post'] = $this->m_post->get_post($post_id);
-        $this->load->view('post.html',$data);
+        $this->load->view('header', $data);
+        $this->load->view('v_single_post',$data);
+        $this->load->view('footer');
     }
      
 
