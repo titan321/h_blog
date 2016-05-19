@@ -48,6 +48,8 @@
         <!-- Custom Theme JavaScript -->
         <script src="<?= base_url()?>assets/js/clean-blog.min.js"></script>
         <script src="<?= base_url()?>assets/js/login_modal.js"></script>
+        <script src="<?= base_url()?>assets/ckeditor/ckeditor.js"></script>
+       
 
         <script type="text/javascript">
 

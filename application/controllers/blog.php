@@ -52,6 +52,18 @@ class Blog extends CI_Controller
             
     function post($post_id)//single post page
     {
+         $this->load->library('ckeditor');
+        $this->load->library('ckfinder');
+
+        //configure base path of ckeditor folder
+        $this->ckeditor->basePath = base_url() . 'assets/ckeditor/';
+        $this->ckeditor->config['toolbar'] = 'Full';
+        $this->ckeditor->config['language'] = 'en';
+        //configure ckfinder with ckeditor config
+        $this->ckfinder->SetupCKEditor($this->ckeditor, '../../assets/ckfinder/');
+
+        /** this is for ckeditor and ckfinder * */
+       
         $this->load->model('m_comment');
         $data['comments'] = $this->m_comment->get_comment($post_id);  
         $data['post'] = $this->m_post->get_post($post_id);
